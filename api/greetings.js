@@ -36,8 +36,8 @@ router.get('/getAllTimesOfDay', async (req, res) => {
     const result = await pool.query('SELECT DISTINCT timeOfDay FROM Greetings');
     res.json(result.rows.map((row) => row.timeofday));
   } catch (err) {
-    console.error('Database error:', err);
-    res.status(500).send({ error: 'Database error occurred' });
+    console.error('Error in getAllTimesOfDay:', err);
+    res.status(500).send({ error: 'Internal server error' });
   }
 });
 
@@ -47,8 +47,8 @@ router.get('/getSupportedLanguages', async (req, res) => {
     const result = await pool.query('SELECT DISTINCT language FROM Greetings');
     res.json(result.rows.map((row) => row.language));
   } catch (err) {
-    console.error('Database error:', err);
-    res.status(500).send({ error: 'Database error occurred' });
+    console.error('Error in getSupportedLanguages:', err);
+    res.status(500).send({ error: 'Internal server error' });
   }
 });
 
