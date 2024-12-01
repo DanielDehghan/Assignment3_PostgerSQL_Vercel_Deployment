@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import readline from 'readline';
 
-const url = "http://localhost:3000/api/greetings/greet"; 
+const url = "https://assignment3-postger-sql-vercel-deployment.vercel.app/api/greetings/greet";
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -45,7 +45,7 @@ async function getGreeting() {
             }
 
             const greetingResponse = await response.json();
-            console.log('Greeting:', greetingResponse.greetingMessage);
+            console.log('Greeting:', greetingResponse.greetingmessage);
             console.log('Tone:', greetingResponse.tone);
         } catch (err) {
             console.log('Error fetching the greeting:', err.message);

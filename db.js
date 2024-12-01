@@ -61,7 +61,6 @@ const initializeDb = async () => {
   }
 };
 
-// Initialize the database
 initializeDb().catch((err) => console.error(err));
 
 export default pool;
