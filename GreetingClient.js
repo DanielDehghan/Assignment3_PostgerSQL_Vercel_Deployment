@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import readline from 'readline';
 
-const url = "http://localhost:3000/api/greeting/greet";
+const url = "http://localhost:3000/api/greetings/greet"; 
 
 const rl = readline.createInterface({
     input: process.stdin,
