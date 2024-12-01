@@ -1,11 +1,14 @@
-import { Pool } from 'pg';
+import pkg from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
+const { Pool } = pkg;
+
 // Initialize PostgreSQL connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
 const initializeDb = async () => {
@@ -35,7 +38,7 @@ const initializeDb = async () => {
         ('Afternoon', 'English', 'Good Afternoon', 'Formal'),
         ('Afternoon', 'English', 'Hey there!', 'Casual'),
         ('Evening', 'English', 'Good Evening', 'Formal'),
-        ('Evening', 'English', 'What\'s up?', 'Casual'),
+        ('Evening', 'English', 'What''s up?', 'Casual'), 
         ('Morning', 'French', 'Bonjour', 'Formal'),
         ('Morning', 'French', 'Salut!', 'Casual'),
         ('Afternoon', 'French', 'Bon Après-midi', 'Formal'),
